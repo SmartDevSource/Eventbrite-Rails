@@ -1,6 +1,6 @@
 class UserMailer < ApplicationMailer
 
-  default from: 'dreamrock@hotmail.fr'
+  default from: 'supervincent@hotmail.fr'
 
   def welcome_email(user)
     @user = user

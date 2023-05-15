@@ -7,6 +7,6 @@ class UserMailer < ApplicationMailer
 
     @url = 'https://website.org/login'
     mail(to: @user.email, subject: "Salut à toi ! ")
-
   end
+
 end

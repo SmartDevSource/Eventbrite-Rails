@@ -5,7 +5,11 @@ ruby "3.0.0"
 
 gem "letter_opener", group: :development
 
+gem "faker"
+
 gem "mailjet"
+
+gem "table_print"
 
 gem "dotenv-rails"
 

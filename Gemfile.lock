@@ -94,6 +94,8 @@ GEM
       dotenv (= 2.8.1)
       railties (>= 3.2)
     erubi (1.12.0)
+    faker (3.2.0)
+      i18n (>= 1.8.11, < 2)
     globalid (1.1.0)
       activesupport (>= 5.0)
     http-accept (1.7.0)
@@ -206,6 +208,7 @@ GEM
       sprockets (>= 3.0.0)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
+    table_print (1.5.7)
     thor (1.2.2)
     timeout (0.3.2)
     turbo-rails (1.4.0)
@@ -242,6 +245,7 @@ DEPENDENCIES
   capybara
   debug
   dotenv-rails
+  faker
   importmap-rails
   jbuilder
   letter_opener
@@ -252,6 +256,7 @@ DEPENDENCIES
   selenium-webdriver
   sprockets-rails
   stimulus-rails
+  table_print
   turbo-rails
   tzinfo-data
   web-console

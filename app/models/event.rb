@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
 
-  validates :start_date, presence: true, comparison: {greater_than: :datetime.now}
+  validates :start_date, presence: true, comparison: {greater_than: DateTime.now}
   validates :duration, presence: true
   validate :isMultipleOf5?
   validates :title, presence: true, length: {in: 5..140}

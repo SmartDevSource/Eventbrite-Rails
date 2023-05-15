@@ -5,7 +5,7 @@ class Attendance < ApplicationRecord
   belongs_to :event
 
   def welcome_send
-    UserMailer.welcome_email(:user).deliver_now
+    UserMailer.welcome_email(User.find_by(id: :attendee_id)).deliver_now
   end
 
 end

@@ -2,12 +2,6 @@ User.destroy_all
 Event.destroy_all
 Attendance.destroy_all
 
-def generate_random_multiple_of_5(min_value, max_value)
-  range_size = (max_value - min_value) / 5 + 1
-  random_number = rand(range_size).to_i * 5 + min_value
-  random_number
-end
-
 # Création des utilisateurs
 3.times do
   User.create(
@@ -29,7 +23,8 @@ puts 'Utilisateurs créés avec succès.'
     location: Faker::Address.full_address,
     description: Faker::Lorem.paragraph,
     price: Faker::Number.between(from: 1, to: 1000),
-    duration: generate_random_multiple_of_5(5, 120)
+    duration: rand(1..80)*5,
+    administrator_id: User.all.sample.id
   )
 end
 
@@ -37,7 +32,7 @@ puts 'Événements créés avec succès.'
 
 # Création des participations
 3.times do
-  Attendance.create(stripe_customer_id: Faker::Alphanumeric.alphanumeric(number: 10))
+  Attendance.create(stripe_customer_id: Faker::Alphanumeric.alphanumeric(number: 10), attendee_id: User.all.sample.id, event_id: Event.all.sample.id)
 end
 
 puts 'Participations créées avec succès.'

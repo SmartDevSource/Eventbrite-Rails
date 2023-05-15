@@ -24,7 +24,7 @@ puts 'Utilisateurs créés avec succès.'
 # Création des événements
 3.times do
   Event.create(
-    start_date: Faker::Time.between_dates(from: DateTime.today, to: DateTime.today + 30),
+    start_date: Faker::Time.between_dates(from: Date.today, to: Date.today + 30),
     title: Faker::Lorem.sentence,
     location: Faker::Address.full_address,
     description: Faker::Lorem.paragraph,

@@ -7,6 +7,8 @@ gem "letter_opener", group: :development
 
 gem "faker"
 
+gem "devise"
+
 gem "mailjet"
 
 gem "table_print"

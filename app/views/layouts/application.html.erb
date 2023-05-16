@@ -68,6 +68,16 @@
     </nav>
 
     <center>
+    <% if flash[:success].present? %>
+      <div class="alert alert-success custom_alert" role="alert">
+        <%= flash[:success] %>
+      </div>
+
+      <%elsif flash[:alert].present?%>
+      <div class="alert alert-danger custom_alert" role="alert">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
 
     <%= yield %>
   </body>

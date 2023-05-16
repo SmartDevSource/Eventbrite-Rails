@@ -7,6 +7,8 @@ gem "letter_opener", group: :development
 
 gem "faker"
 
+gem 'rails-i18n'
+
 gem "devise"
 
 gem "mailjet"

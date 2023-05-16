@@ -1,5 +1,5 @@
 <br>
-<%= form_for('/', html: {class: "form-container"}) do |f| %>
+<%= form_for(@event, method: :post, html: {class: "form-container"}) do |f| %>
     <h2>Créer un évènement</h2>
 
     <div class="form-group">
@@ -13,7 +13,7 @@
     </div>
 
     <div class="form-group">
-      <%= f.label "Lieu" %><br />  
+      <%= f.label "Lieu" %><br />
       <%= f.text_field :location, class: "form-control" %>
     </div>
 
@@ -29,7 +29,7 @@
 
     <div class="form-group">
       <%= f.label "Durée" %><br />
-      <%= f.number_field :duration, class: "form-control" %>
+      <%= f.number_field :duration, class: "form-control", step: 5, min: 5, max: 120 %>
     </div>
 
     <div class="form-actions">

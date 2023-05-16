@@ -7,6 +7,10 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
+  def show
+    @event = Event.find_by(id: params[:id])
+  end
+
   def create
     date_time_hash = { "day"=> params["event"]["start_date(3i)"], "month" => params["event"]["start_date(2i)"], "year" => params["event"]["start_date(1i)"] , 
                   "hour" => params["event"]["start_date(4i)"], "minutes" => params["event"]["start_date(5i)"]}

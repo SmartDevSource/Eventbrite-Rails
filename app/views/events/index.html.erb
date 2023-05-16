@@ -56,7 +56,7 @@
         <h4 class="card-title">Pour la date du <%=e.start_date.strftime("%d")%>-<%=e.start_date.strftime("%m")%>-<%=e.start_date.strftime("%y")%> à 
         <%=e.start_date.strftime("%H")%>h<%=e.start_date.strftime("%M")%></h4>
         <p class="card-text"><%=e.description%></p>
-        <a href="#" class="btn btn-primary">En savoir plus</a>
+        <%= link_to "En savoir plus", event_path(e.id), class:"btn btn-primary"%>
       </div>
     </div>
   </div>

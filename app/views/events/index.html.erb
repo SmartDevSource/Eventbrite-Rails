@@ -3,10 +3,11 @@
   border: 1px solid #000;
   border-radius: 4px;
   margin-bottom: 20px;
+  background-color: #e4e1e1;
 }
 
 .card-header {
-  background-color: #f8f9fa;
+  background-color: #ccc;
   border-bottom: 1px solid #000;
   padding: 10px;
 }
@@ -52,7 +53,8 @@
         <%=e.title%>
       </div>
       <div class="card-block">
-        <h4 class="card-title">Pour la date du <%=e.start_date.day%>-<%=e.start_date.month%>-<%=e.start_date.year%> à <%=e.start_date.hour%>h<%=e.start_date.min%></h4>
+        <h4 class="card-title">Pour la date du <%=e.start_date.strftime("%d")%>-<%=e.start_date.strftime("%m")%>-<%=e.start_date.strftime("%y")%> à 
+        <%=e.start_date.strftime("%H")%>h<%=e.start_date.strftime("%M")%></h4>
         <p class="card-text"><%=e.description%></p>
         <a href="#" class="btn btn-primary">En savoir plus</a>
       </div>

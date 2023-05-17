@@ -1,0 +1,25 @@
+<br>
+
+<% if current_user %>
+
+  <%= form_for(@event, url:checkout_create_path(event: @event), method: :post, html: {class: "form-container"}, data: { turbo: false },  remote: true) do |f| %>
+    <h2>Se joindre à l'évènement de <%=@user.first_name%></h2>
+
+    <div class="form-group">
+      <%= f.label "Paiement" %><br />
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit "Payer #{@event.price} euros.", class: "btn-orange text-white" %>
+    </div>
+
+  <% end %>
+
+
+<% else %>
+
+  <br>
+  <h3><p class = "text-white">Vous devez être connecté pour vous joindre à cet évènement.</p>
+  <%= link_to "Se connecter", new_user_session_path, :class=>"btn-orange text-white" %>
+
+<% end %>

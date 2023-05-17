@@ -9,11 +9,12 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by(id: params[:id])
+    @registred = @event.attendances.all.find_by(attendee_id: current_user.id)
   end
 
   def create
     date_time_hash = { "day"=> params["event"]["start_date(3i)"], "month" => params["event"]["start_date(2i)"], "year" => params["event"]["start_date(1i)"] , 
-                  "hour" => params["event"]["start_date(4i)"], "minutes" => params["event"]["start_date(5i)"]}
+                     "hour" => params["event"]["start_date(4i)"], "minutes" => params["event"]["start_date(5i)"]}
 
     date_time = DateTime.new(
       date_time_hash["year"].to_i,
@@ -34,4 +35,10 @@ class EventsController < ApplicationController
     end
 
   end
+
+  def join
+    @event = Event.find_by(id: params[:id])
+    @user = User.find_by(id: @event.administrator_id)
+  end
+
 end

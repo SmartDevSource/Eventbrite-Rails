@@ -1,4 +1,5 @@
 <style>
+
 .card {
   border: 1px solid #000;
   border-radius: 4px;
@@ -54,9 +55,14 @@
     <p class="card-text"><b>Prix</b><br><%=@event.price%>€</p>
     <p class="card-text"><b>Durée</b><br><%=@event.duration%> minutes</p>
     <br>
-    <%= button_to "Dépenser son FRIC", checkout_create_path(total: @event.price), data: { turbo: false }, class: "btn btn-primary", remote: true %>
-    <br>
-  </div>
-</div>
+    <!--<%= button_to "Dépenser son FRIC", checkout_create_path(total: @event.price), data: { turbo: false }, class: "btn btn-primary", remote: true %>-->
 
-  <%= link_to "Revenir à la page d'accueil", root_path, class:"btn btn-primary"%>
+    <%if !@registred%>
+      <%= button_to "Se joindre à l'évènement", event_join_path(@event.id), data: { turbo: false }, class: "btn-orange text-white", remote: true %>
+      <br>
+    <%end%>
+
+    </div>
+  </div>
+
+  <%= link_to "Revenir à la page d'accueil", root_path, class:"btn-orange text-white"%>

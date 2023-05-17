@@ -9,6 +9,8 @@ gem "faker"
 
 gem 'rails-i18n'
 
+gem 'stripe'
+
 gem "devise"
 
 gem "mailjet"

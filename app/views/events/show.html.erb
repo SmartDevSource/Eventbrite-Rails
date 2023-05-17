@@ -53,6 +53,9 @@
     <p class="card-text"><b>Lieu</b><br><%=@event.location%></p>
     <p class="card-text"><b>Prix</b><br><%=@event.price%>€</p>
     <p class="card-text"><b>Durée</b><br><%=@event.duration%> minutes</p>
+    <br>
+    <%= button_to "Dépenser son FRIC", checkout_create_path(total: @event.price), data: { turbo: false }, class: "btn btn-primary", remote: true %>
+    <br>
   </div>
 </div>
 

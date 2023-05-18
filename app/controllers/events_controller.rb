@@ -8,9 +8,13 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find_by(id: params[:id])
-    if (current_user) then @registred = @event.attendances.all.find_by(attendee_id: current_user.id) end
-    @author = User.find_by(id: @event.administrator_id)
+    if Event.exists? id: params[:id]
+      @event = Event.find_by(id: params[:id])
+      if (current_user) then @registred = @event.attendances.all.find_by(attendee_id: current_user.id) end
+      @author = User.find_by(id: @event.administrator_id)
+    else
+      redirect_to root_path
+    end  
   end
 
   def create

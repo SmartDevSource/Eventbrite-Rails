@@ -9,7 +9,8 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by(id: params[:id])
-    @registred = @event.attendances.all.find_by(attendee_id: current_user.id)
+    if (current_user) then @registred = @event.attendances.all.find_by(attendee_id: current_user.id) end
+    @author = User.find_by(id: @event.administrator_id)
   end
 
   def create

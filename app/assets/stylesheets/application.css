@@ -66,3 +66,9 @@ body {
   background-image: linear-gradient(to left top, rgba(0, 255, 255, 1) 0%, rgba(255, 0, 255, 0.5) 50% , rgba(255, 255, 0, 1) 100%), 
                     linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
 }
+
+.row-align{
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: space-between;
+}

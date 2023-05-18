@@ -20,7 +20,7 @@
   <body>
 
   <body class="bk_user back-bg">
-    <nav class="navbar navbar-expand-sm navbar navbar-dark bg-dark" style="background-color: #e3f2fd">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark" style="background-color: #e3f2fd">
       <%= link_to "EventBrite-Rails", root_path, :class=>"navbar-brand", style:"margin-left: 10px"%>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -57,10 +57,10 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <%= link_to "S'inscrire", new_user_registration_path, :class=>"nav-link text-white" %>
+              <%= link_to "S'inscrire", new_user_registration_path, :class=>"nav-link text-white", :style=>"padding-right:10px;" %>
             </li>
             <li class="nav-item active">
-              <%= link_to "Se connecter", new_user_session_path, :class=>"nav-link text-white" %>
+              <%= link_to "Se connecter", new_user_session_path, :class=>"nav-link text-white", :style=>"padding-right:10px;" %>
             </li>
           </ul>
         </div>

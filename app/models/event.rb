@@ -12,6 +12,8 @@ class Event < ApplicationRecord
   has_many :attendances
   has_many :users, through: :attendances
 
+  has_one_attached :picture
+
   def multiple_of_5?
     errors.add(:duration, 'Doit être un multiple de 5') unless duration % 5 == 0
   end

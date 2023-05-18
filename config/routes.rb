@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+  get 'pictures/create'
   get 'avatars/create'
   get 'users/show'
   get 'events/index'
   devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
   resources :events
 
   resources :users, only: [:show] do
@@ -18,6 +19,5 @@ Rails.application.routes.draw do
     get 'cancel', to: 'checkout#cancel', as: 'checkout_cancel'
   end
 
-  # Defines the root path route ("/")
   root "events#index"
 end

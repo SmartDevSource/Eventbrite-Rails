@@ -48,6 +48,13 @@
     <%=@event.title%>
   </div>
   <div class="card-block">
+  
+    <%if @event.picture.attached?%>
+      <%= image_tag @event.picture, alt: 'picture', width:'100%', style:'border-radius: 15px;' %>
+    <%else%>
+      <p>Il n'y a pas encore de photo liée à cet évènement.</p>
+    <%end%>
+
     <h4 class="card-title">Pour la date du <%=@event.start_date.strftime("%d")%>-<%=@event.start_date.strftime("%m")%>-<%=@event.start_date.strftime("%y")%> à 
     <%=@event.start_date.strftime("%H")%>h<%=@event.start_date.strftime("%M")%></h4>
     <p class="card-text"><b>Auteur</b>

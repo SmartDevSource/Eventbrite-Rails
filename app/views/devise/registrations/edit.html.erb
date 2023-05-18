@@ -3,16 +3,17 @@
 <div class="form-container">
   <h3>Gestion de l'avatar</h3>
 
-    <%if current_user.avatar.attached?%>
-      <%= image_tag current_user.avatar, alt: 'avatar', width:'50%' %>
-    <%else%>
-      <p>Il n'y a pas encore d'avatar lié à votre compte</p>
-    <%end%>
-    <%= form_tag user_avatars_path(@user), multipart: true do %>
+  <%if current_user.avatar.attached?%>
+    <%= image_tag current_user.avatar, alt: 'avatar', width:'50%', style:'border-radius: 15px;' %>
+  <%else%>
+    <p>Il n'y a pas encore d'avatar lié à votre compte</p>
+  <%end%>
+
+  <%= form_tag user_avatars_path(@user), multipart: true do %>
     <%= file_field_tag :avatar %>
     <%= submit_tag "mettre à jour" %>
-
   <% end %>
+
 </div>
 
 <br>

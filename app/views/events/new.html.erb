@@ -2,6 +2,8 @@
 <%= form_for(@event, method: :post, html: {class: "form-container"}) do |f| %>
     <h2>Créer un évènement</h2>
 
+    <%= f.file_field :picture,  multipart: true %>
+
     <div class="form-group">
       <%= f.label "Date de début" %><br />
       <%= f.datetime_select :start_date, { class: "form-control", locale: "fr" } %>

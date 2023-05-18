@@ -4,12 +4,11 @@
   <h3>Profil de <%="#{@user.first_name + " "+@user.last_name}"%></h3>
   <h4></h4>
   <%if @user.avatar.attached?%>
-    <%= image_tag @user.avatar, alt: 'avatar', width:'50%' %>
+    <%= image_tag @user.avatar, alt: 'avatar', width:'50%', style:'border-radius: 15px;' %>
   <%else%>
     <p>Il n'y a pas encore d'avatar lié à cet utilisateur</p>
   <%end%>
 
   <h4><b>Description : </h4></b>
   <%= @user.description %>
-
 </div>

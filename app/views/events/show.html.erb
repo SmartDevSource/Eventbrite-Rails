@@ -60,7 +60,7 @@
     <p class="card-text"><b>Durée</b><br><%=@event.duration%> minutes</p>
     <br>
 
-    <%if !@registred && @event.administrator_id!= current_user.id%>
+    <%if !@registred || current_user && @event.administrator_id!= current_user.id%>
       <%= button_to "Se joindre à l'évènement", event_join_path(@event.id), data: { turbo: false }, class: "btn-orange text-white", remote: true %>
       <br>
       <%else%>

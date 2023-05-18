@@ -70,9 +70,10 @@
     <%if !@registred && current_user && @event.administrator_id!= current_user.id%>
       <%= button_to "Se joindre à l'évènement", event_join_path(@event.id), data: { turbo: false }, class: "btn-orange text-white", remote: true %>
       <br>
+    <%elsif !current_user%>
+      <p class="card-text"><em>Vous devez vous <%= link_to "connecter", new_user_session_path, style: "text-decoration:none;"%> pour vous inscrire à cet évènement.</em></p>
     <%else%>
-      <p class="card-text"><em>Vous êtes déjà inscrit à cet évènement.</em></p>
-      <br>
+      <p class="card-text">Vous êtes déjà inscrit à cet évènement.</em></p>
     <%end%>
 
     </div>

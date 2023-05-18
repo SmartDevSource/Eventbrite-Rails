@@ -26,6 +26,8 @@ class CheckoutController < ApplicationController
       cancel_url: checkout_cancel_url
     )
 
+    # session[:event_id] = @event;
+
     redirect_to @session.url, allow_other_host: true
   end
 
@@ -35,7 +37,7 @@ class CheckoutController < ApplicationController
 
     attendance = Attendance.new(attendee_id: current_user.id, event_id: @@event.id, stripe_customer_id: params[:session_id])
 
-   attendance.save
+    attendance.save
 
   end
 

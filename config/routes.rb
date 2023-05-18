@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
+  get 'avatars/create'
   get 'users/show'
   get 'events/index'
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :events
-  resources :users, only: [:show]
+
+  resources :users, only: [:show] do
+    resources :avatars, only: [:create]
+  end
 
   post 'events/join/:id' => 'events#join', as: 'event_join'
 

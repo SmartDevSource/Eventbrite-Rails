@@ -50,15 +50,17 @@
   <div class="card-block">
     <h4 class="card-title">Pour la date du <%=@event.start_date.strftime("%d")%>-<%=@event.start_date.strftime("%m")%>-<%=@event.start_date.strftime("%y")%> à 
     <%=@event.start_date.strftime("%H")%>h<%=@event.start_date.strftime("%M")%></h4>
-    <p class="card-text"><b>Auteur</b><br><%=@author.first_name%></p>
+    <p class="card-text"><b>Auteur</b>
+    <br>
+    <%=link_to @author.first_name, user_path(@author.id), class: "btn-orange"%>
+    <br>
     <p class="card-text"><b>Description</b><br><%=@event.description%></p>
     <p class="card-text"><b>Lieu</b><br><%=@event.location%></p>
     <p class="card-text"><b>Prix</b><br><%=@event.price%>€</p>
     <p class="card-text"><b>Durée</b><br><%=@event.duration%> minutes</p>
     <br>
-    <!--<%= button_to "Dépenser son FRIC", checkout_create_path(total: @event.price), data: { turbo: false }, class: "btn btn-primary", remote: true %>-->
 
-    <%if !@registred%>
+    <%if !@registred && @event.administrator_id!= current_user.id%>
       <%= button_to "Se joindre à l'évènement", event_join_path(@event.id), data: { turbo: false }, class: "btn-orange text-white", remote: true %>
       <br>
       <%else%>

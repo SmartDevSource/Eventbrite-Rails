@@ -10,11 +10,18 @@ class EventsController < ApplicationController
   def show
     if Event.exists? id: params[:id]
       @event = Event.find_by(id: params[:id])
-      if (current_user) then @registred = @event.attendances.all.find_by(attendee_id: current_user.id) end
+      atdees = @event.attendances.all
+
+      @attendees = Array.new
+      atdees.each do |a|
+        @attendees << User.find_by(id: a.attendee_id)
+      end
+
+    if (current_user) then @registred = @event.attendances.all.find_by(attendee_id: current_user.id) end
       @author = User.find_by(id: @event.administrator_id)
     else
       redirect_to root_path
-    end  
+    end
   end
 
   def create

@@ -45,7 +45,7 @@
 
           <%if current_user.is_admin%>
             <li class="nav-item active">
-              <%= link_to "Dashboard Administrateur", "#", :class=>"nav-link text-white", data: {turbo_method: :delete} %>
+              <%= link_to "Dashboard Administrateur", admin_root_path, :class=>"nav-link text-white" %>
             </li>
           <%end%>
 

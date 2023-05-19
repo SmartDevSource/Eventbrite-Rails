@@ -42,6 +42,13 @@
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
+
+          <%if current_user.is_admin%>
+            <li class="nav-item active">
+              <%= link_to "Dashboard Administrateur", "#", :class=>"nav-link text-white", data: {turbo_method: :delete} %>
+            </li>
+          <%end%>
+
             <li class="nav-item active">
               <%= link_to "#{current_user.first_name}  #{current_user.last_name}", edit_user_registration_path, :class=>"nav-link text-white" %>
             </li>

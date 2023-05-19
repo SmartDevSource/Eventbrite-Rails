@@ -11,6 +11,12 @@ Rails.application.routes.draw do
     resources :avatars, only: [:create]
   end
 
+  namespace :admin do
+    root "admin#index"
+    resources :users
+    resources :events
+  end
+
   post 'events/join/:id' => 'events#join', as: 'event_join'
 
   scope '/checkout' do

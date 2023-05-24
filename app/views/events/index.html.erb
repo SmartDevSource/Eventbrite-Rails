@@ -5,15 +5,15 @@
 
   <%if e.validated%>
   <div class="col-md-3">
-    <div class="card" style="width: 22rem";>
+    <div class="card border-primary mb-3 align" style="width: 22rem";>
       <div class="card-header">
         <b><%=e.title%></b>
       </div>
-      <div class="card-block">
+      <div class="card-body">
         <h4 class="card-title">Pour la date du <%=e.start_date.strftime("%d")%>-<%=e.start_date.strftime("%m")%>-<%=e.start_date.strftime("%y")%> à 
         <%=e.start_date.strftime("%H")%>h<%=e.start_date.strftime("%M")%></h4>
         <p class="card-text"><%=e.description%></p>
-        <%= link_to "En savoir plus", event_path(e.id), class:"btn-orange text-white"%>
+        <%= link_to "En savoir plus", event_path(e.id), class:"btn btn-primary"%>
       </div>
     </div>
   </div>

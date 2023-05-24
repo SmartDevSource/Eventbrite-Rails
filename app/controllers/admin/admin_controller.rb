@@ -1,4 +1,4 @@
-class Admin::UsersController < ApplicationController
+class Admin::AdminController < ApplicationController
   before_action :admin_verification
 
   def admin_verification
@@ -6,11 +6,10 @@ class Admin::UsersController < ApplicationController
       redirect_to root_path
     end
   end
-
-  def destroy
-    User.find(params[:id]).delete
+  
+  def index
     @users = User.all
-    redirect_back fallback_location: root_path
+    @events = Event.all
   end
 
 end

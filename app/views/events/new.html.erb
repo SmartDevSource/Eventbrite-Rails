@@ -1,5 +1,6 @@
 <br>
-<%= form_for(@event, method: :post, html: {class: "form-container"}) do |f| %>
+
+<%= form_for(@event, method: :post, html: {class: "form-floating"}) do |f| %>
     <h2>Créer un évènement</h2>
 
     <%= f.file_field :picture,  multipart: true %>
@@ -35,7 +36,8 @@
     </div>
 
     <div class="form-actions">
-      <%= f.submit "Créer", class: "btn-orange" %>
+      <%= f.submit "Créer", class: "btn btn-primary" %>
     </div>
+    <br>
 
   <% end %>

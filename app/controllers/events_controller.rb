@@ -12,7 +12,7 @@ class EventsController < ApplicationController
     if Event.exists? id: params[:id]
       @event = Event.find_by(id: params[:id])
 
-      if @event.validated
+      if (@event.validated || (current_user && current_user.is_admin))
 
       atdees = @event.attendances.all
 

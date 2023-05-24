@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    root to: "users#index"
+    resources :users
+    resources :events
+    root to: "admin#index"
   end
 
   post 'events/join/:id' => 'events#join', as: 'event_join'

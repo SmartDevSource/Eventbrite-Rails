@@ -1,22 +1,22 @@
 <br>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-container"}) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-floating"}) do |f| %>
   <h2>Inscription</h2>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="form-group">
     <%= f.label "Prénom" %><br />
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "Prénom", class: "form-control", required: true %>
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "Prénom", class: "form-control", :max_length =>15, required: true %>
   </div>
 
   <div class="form-group">
     <%= f.label "Nom" %><br />
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "Nom", class: "form-control", required: true %>
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "Nom", class: "form-control", :max_length =>15, required: true %>
   </div>
 
   <div class="form-group">
     <%= f.label "Description" %><br />
-    <%= f.text_field :description, autofocus: true, autocomplete: "Description", class: "form-control", required: true %>
+    <%= f.text_field :description, autofocus: true, autocomplete: "Description", class: "form-control", :max_length =>150, required: true %>
   </div>
 
   <div class="form-group">
@@ -38,7 +38,8 @@
   </div>
 
   <div class="form-actions">
-    <%= f.submit "S'inscrire", class: "btn-orange text-white" %>
+    <%= f.submit "S'inscrire", class: "btn btn-success" %>
   </div>
+  <br>
 
 <% end %>

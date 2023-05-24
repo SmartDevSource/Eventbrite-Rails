@@ -1,8 +1,8 @@
 <br>
-<div class="form-container">
+<div class="form-floating">
   <h2>Connexion</h2>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-floating"}) do |f| %>
     <div class="form-group">
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
@@ -21,11 +21,13 @@
     <% end %>
 
     <div class="form-actions">
-      <%= f.submit "Se connecter", class: "btn-orange text-white" %>
+      <%= f.submit "Se connecter", class: "btn btn-success" %>
     </div>
     
-    <br><%= link_to "Mot de passe oublié ?", new_user_password_path, class: "btn-orange text-white" %>
+    <br><%= link_to "Mot de passe oublié ?", new_user_password_path, class: "btn btn-warning" %>
 
   <% end %>
+
+  <br>
 
 </div>

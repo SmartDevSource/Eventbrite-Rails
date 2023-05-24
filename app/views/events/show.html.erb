@@ -15,7 +15,7 @@
     <%=@event.start_date.strftime("%H")%>h<%=@event.start_date.strftime("%M")%></h4>
     <p class="card-text"><b>Auteur</b>
     <br>
-    <%=link_to @author.first_name, user_path(@author.id), class: "btn-orange"%>
+    <%=link_to @author.first_name, user_path(@author.id), class: "btn btn-primary"%>
     <br>
     <p class="card-text"><b>Description</b><br><%=@event.description%></p>
     <p class="card-text"><b>Lieu</b><br><%=@event.location%></p>
@@ -34,7 +34,7 @@
     <br>
 
     <%if !@registred && current_user && @event.administrator_id!= current_user.id%>
-      <%= button_to "Se joindre à l'évènement", event_join_path(@event.id), data: { turbo: false }, class: "btn-orange text-white", remote: true %>
+      <%= button_to "Se joindre à l'évènement", event_join_path(@event.id), data: { turbo: false }, class: "btn btn-primary", remote: true %>
       <br>
     <%elsif !current_user%>
       <p class="card-text"><em>Vous devez vous <%= link_to "connecter", new_user_session_path, style: "text-decoration:none;"%> pour vous inscrire à cet évènement.</em></p>
@@ -42,8 +42,11 @@
       <p class="card-text"><em>Vous êtes déjà inscrit à cet évènement.</em></p>
     <%end%>
 
+    <br>
+
     </div>
   </div>
 
-  <%= link_to "Revenir à la page d'accueil", root_path, class:"btn-orange text-white"%>
+  <br><br>
+  <%= link_to "Revenir à la page d'accueil", root_path, class:"btn btn-info"%>
   <br><br>

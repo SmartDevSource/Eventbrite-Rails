@@ -1,14 +1,18 @@
 <br>
 
-<div class="form-container">
-  <h3>Profil de <%="#{@user.first_name + " "+@user.last_name}"%></h3>
-  <h4></h4>
-  <%if @user.avatar.attached?%>
-    <%= image_tag @user.avatar, alt: 'avatar', width:'50%', style:'border-radius: 15px;' %>
-  <%else%>
-    <p>Il n'y a pas encore d'avatar lié à cet utilisateur</p>
-  <%end%>
-
-  <h4><b>Description : </h4></b>
-  <%= @user.description %>
+<div class="form-floating">
+  <div class="col-sm">
+  <div class="card border-primary mb-3 align" style="max-width: 20rem;">
+    <div class="card-header">Profil de <%="#{@user.first_name + " "+@user.last_name}"%></div>
+    <div class="card-body">
+      <%if @user.avatar.attached?%>
+        <%= image_tag @user.avatar, alt: 'avatar', width:'50%', style:'border-radius: 15px;' %>
+      <%else%>
+        <p>Il n'y a pas encore d'avatar lié à cet utilisateur</p>
+      <%end%>
+      <h4 class="card-title">Description</h4>
+      <p class="card-text"><%= @user.description %></p>
+      <button type="button" class="btn btn-success">Contacter</button>
+    </div>
+  </div>
 </div>

@@ -1,0 +1,75 @@
+<br>
+<div class="col-md-8">
+  <div class="card margin-card">
+    <div class="card-header">
+      <h1 class = "text-warning">Panneau de configuration</h1> 
+    </div>
+  </div>
+
+  <div class="card margin-card">
+    <div class="card-header admin-links">
+      <div class = "padding-link">
+        <b><%= link_to "Utilisateurs", "#users", :class=>"footer-link" %></b> 
+        <b><%= link_to "Evènements", "#events", :class=>"footer-link" %></b> 
+        <b><%= link_to "Participations", "#participations", :class=>"footer-link" %></b> 
+      </div>
+    </div>
+  </div>
+  <br>
+  </div>
+  
+  <h2 id = "users">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <b><p class = "text-dark-grey">Utilisateurs</p></b>
+        </div>
+        <div class="card-block">
+          <h6 class="card-title text-dark-grey">
+            <%@users.each do |user|%>
+              ID : <%=user.id%> - 
+              Prénom : <%=user.first_name%> -
+              Nom : <%=user.last_name%> - 
+              Email : <%=user.email%> - 
+              Rôle :
+                <%if user.is_admin%> 
+                 Administrateur 
+                <%else%> Membre <b>
+                  <%=button_to "Supprimer", admin_user_path(user), :class=>"btn-danger stay-inline", data: { confirm: "Êtes-vous sûr(e) ?", turbo_confirm: "Êtes-vous sûr(e) ?" }, method: :delete %></b> 
+                <%end%>
+                <%=link_to "Profil", user_path(user), :class=>"btn btn-success stay-inline" %></b> 
+              <br>
+            <%end%>
+          </h6>
+        </div>
+      </div>
+    </div>
+  </h2>
+
+  <h2 id = "events">
+      <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <b><p class = "text-dark-grey">Evènements</p></b>
+        </div>
+        <div class="card-block">
+          <h6 class="card-title text-dark-grey">
+            <%@events.each do |event|%>
+              ID : <%=event.id%> - 
+              Titre : <%=event.title%> - 
+              Lieu : <%=event.location%>
+              <%=link_to "Profil", event_path(event), :class=>"btn btn-success" %></b> 
+                <%if event.validated%>
+                  <%=button_to "Supprimer", admin_event_path(id: event.id, type: "event"), :class=>"btn btn-danger", data: { confirm: "Êtes-vous sûr(e) ?", turbo_confirm: "Êtes-vous sûr(e) ?" }, method: :delete %></b> 
+                  <%else%>
+                  <%=button_to "Accepter", admin_events_path(id: event.id, type: "event"), :class=>"btn btn-success", method: :post %></b> 
+                  <%=button_to "Refuser", admin_event_path(id: event.id, type: "event"), :class=>"btn btn-danger", data: { confirm: "Êtes-vous sûr(e) ?", turbo_confirm: "Êtes-vous sûr(e) ?" }, method: :delete %></b> 
+                <%end%>
+            <%end%>
+            <br>
+          </h6>
+        </div>
+      </div>
+    </div>
+  </h2>
+<br>
